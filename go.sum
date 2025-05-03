@@ -1,0 +1,8 @@
+github.com/golang-jwt/jwt/v5 v5.0.1 h1:YbAGVWUHz1nDBL+g7zHcZTvTYU9KiKHLOph9KnIO7g8=
+github.com/golang-jwt/jwt/v5 v5.0.1/go.mod h1:0QzZ7bFnxUO10cZMxgftAHML0TwXLekIfEMLkC2HP4w=
+github.com/gorilla/mux v1.8.0 h1:K0nqu+zC8N+0BpukRR3XD6KD+OaBEk5MYFnlS2U1uKk=
+github.com/gorilla/mux v1.8.0/go.mod h1:8e1bd3Fugz84zMbX3SXDZ7og6UJULDBkSkQprKs60bE=
+gorm.io/driver/postgres v1.5.0 h1:YmQ5uELgIR+6CqG3kp+IBpRtkNm+4Snz5rRZlBNnpyM=
+gorm.io/driver/postgres v1.5.0/go.mod h1:Mk9bRS3Y1A1E3DwHyqIOGZItCkN2CQT6H9mLvs7N8fM=
+gorm.io/gorm v1.25.5 h1:SLUkRoCHDfEqwGW6rvmE0S8WvVkx4RRnuvUEcTSKPvM=
+gorm.io/gorm v1.25.5/go.mod h1:GZzC4E5Eds8N6VcZyXrBpy9HwDWB+INZ8jF5eBMTs38=
