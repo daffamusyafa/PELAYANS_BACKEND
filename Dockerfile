@@ -1,23 +1,33 @@
-# Gunakan image golang resmi sebagai base image
-FROM golang:1.18-alpine
+# Stage 1: Build
+FROM golang:1.19-alpine AS builder
 
-# Set working directory di dalam container
+# Install git (dibutuhkan saat go mod download)
+RUN apk add --no-cache git
+
 WORKDIR /app
 
-# Copy go mod dan go sum
-COPY go.mod go.sum ./
+# Copy dependency files dan download dependencies
+COPY go.mod ./
+COPY go.sum ./
+RUN go mod download
 
-# Install dependencies Go
-RUN go mod tidy
-
-# Copy seluruh kode ke dalam container
+# Copy seluruh source code
 COPY . .
 
-# Build aplikasi Go
-RUN go build -o main .
+# Build binary
+RUN go build -o server
 
-# Tentukan port aplikasi
+# Stage 2: Runtime
+FROM alpine:latest
+
+WORKDIR /app
+
+# Install SSL cert (jika backend butuh HTTPS/SSL request ke luar)
+RUN apk add --no-cache ca-certificates
+
+# Salin binary dari builder
+COPY --from=builder /app/server .
+
 EXPOSE 5000
 
-# Jalankan aplikasi
-CMD ["./main"]
+CMD ["./server"]
